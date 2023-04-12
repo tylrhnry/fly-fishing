@@ -52,7 +52,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         else {
             menuMobile.style.display = 'block';
-            // -----------------------------------------------------------------------
             const vertLinks = Array.from(menuMobile.getElementsByClassName("navbuttons"));
             vertLinks.forEach((link) => {
                 link.addEventListener("click", function (event) {
@@ -70,7 +69,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
-            // ------------------------------------------------------------------------
         }
     });
 
