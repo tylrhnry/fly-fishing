@@ -244,3 +244,9 @@ section > h2 {
 #examples {
     display: none;
 }
+
+.ytvid {
+    width: 500px;
+    height: 350px;
+  }
+
