@@ -78,29 +78,21 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const themeToggle = document.getElementById('toggle-theme');
+    const head = document.querySelector('head');
+    const themeLink = '<link rel="stylesheet" href="css/override.css">';
+
+    themeToggle.addEventListener('click', () => {
+        const existingLink = document.querySelector('link[href="css/override.css"]');
+        if (existingLink) {
+            existingLink.remove();
+        } else {
+            head.insertAdjacentHTML('beforeend', themeLink);
+        }
+    });
+
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

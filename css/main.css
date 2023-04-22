@@ -1,7 +1,37 @@
+/* With this submission, I fixed the brown trout 
+leaving it's parent container. I also made it so
+the main page fly comparison grid changed layout.
+I also fixed an issue where the pictures were not
+always the same size as eachother when resizing
+the window. I also made it so that the pictures
+that appear to the right of content on large 
+screens appear within the paragraphs on smaller 
+screens. I also fixed the abnormal aspect ratios
+the youtube videos had and made them a more 
+practical size.*/
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --primary-color: #fff;
+    --background-color: #333;
+    --secondary-color: #f2f2f2;
+    --button-color: white;
+    --box-shadow: gray;
+    --section-button: #c2c2c2;
+    --border: black;
+    /* color: #fff;
+    --primary-color: #eee;
+    --background-color: #333;
+    --secondary-color: #333;
+    --button-color: black;
+    --box-shadow: #444;
+    --button-text: black;
+    --section-button: #888;
+    --border: rgb(133, 67, 13);
+    --nav-color: white; */
 }
   
 body {
@@ -11,7 +41,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-image: url("lake.jpg");
+    background-image: url("../img/lake.jpg");
 }
 
 header {
@@ -22,8 +52,8 @@ header {
     padding-right: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
-	background-color: #333;
-	color: #fff;
+	background-color: var(--background-color);
+	color: var(--primary-color);
 }
 
 .header-content {
@@ -47,7 +77,7 @@ nav li:not(:last-child) {
 }
 
 nav a {
-    color: #fff;
+    color: var(--nav-color);
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     padding: 0.5rem;
@@ -56,8 +86,19 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    background-color: #fff;
-    color: #333;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+#toggle-theme {
+    background-color: var(--section-button);
+    border: none;
+    padding: 10px;
+    color: var(--button-text);
+    border-radius: 0.25rem;
+    box-shadow: 1px 1px 2px var(--border);
+    font-weight: bold;
+    cursor: pointer;
 }
 
 main {
@@ -66,9 +107,9 @@ main {
 
 section {
 	padding: 20px;
-	background-color: #f2f2f2;
+	background-color: var(--secondary-color);
 	border-radius: 5px;
-	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	box-shadow: 0 0 10px var(--box-shadow);
     height: 100%;
 }
 
@@ -77,12 +118,11 @@ section:target {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--background-color);
+    color: var(--primary-color);
     text-align: center;
     padding: 5px;
     bottom: 0;
-    left: 0;
     width: 100%;
 }
 
@@ -96,6 +136,7 @@ nav #menu-toggle {
 
 
 @media (max-width: 800px) {
+    /* hamburger menu settings */
     #menu {
         display: none;
         position: absolute;
@@ -120,7 +161,7 @@ nav #menu-toggle {
         position: absolute;
         height: 4px;
         width: 100%;
-        background: #333;
+        background: var(--background-color);
         border-radius: 4px;
         opacity: 1;
         left: 0;
@@ -154,16 +195,16 @@ nav #menu-toggle {
     #menu-vert li a {
         display: block;
         padding: 10px;
-        color: white;
-        border: 2px solid white;
+        color: var(--button-color);
+        border: 2px solid var(--button-color);
         text-decoration: none;
     }
 
     #menu-vert li a:hover {
         display: block;
         padding: 10px;
-        color: #333;
-        border: 2px solid #333;
+        color: var(--background-color);
+        border: 2px solid var(--background-color);
         text-decoration: none;
     }
 
@@ -175,12 +216,12 @@ nav #menu-toggle {
 section > h2 {
     display: inline-block;
     padding: 10px;
-    background-color: #c2c2c2;
+    color: var(--button-text);
+    background-color: var(--section-button);
     border-radius: 0.25rem;
-    box-shadow: 1px 1px 2px black;
-  }
+    box-shadow: 1px 1px 2px var(--border);
+}
   
-
 .float-right {
     float: right;
     padding: 10px;
@@ -190,7 +231,7 @@ section > h2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
-    gap: 10px 20px;    
+    gap: 10px 20px;
 }
   
 .col1, .col2, .col3 {
@@ -200,10 +241,83 @@ section > h2 {
 .col1 img, .col2 img, .col3 img {
     width: 100%;
     padding: 5px;
-    border: 3px solid black;
+    border: 3px solid var(--border);
     border-radius: 5px;
 }
 
+@media (max-width: 800px) {
+    /* Change fly comparison grid on home page
+    to a 2x3 grid */
+    .fly-comparison {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col1, .col2, .col3 {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 5px;
+        justify-content: left;
+        align-items: center;
+    }
+        
+    .fly-comparison h2 {
+        width: 20%;
+        padding-left: 0;
+        font-size: calc(1vw * 3);
+    }
+
+    .col1 img, .col2 img, .col3 img {
+        width: 38%;
+    }
+
+}
+
+
+#home2 {
+    display: flex;
+}
+  
+.column.left {
+    flex: 2;
+    margin-right: 30px;
+}
+  
+.column.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+  
+figure {
+    margin-left: 30px;
+    text-align: right;
+}
+
+figcaption {
+    text-align: center;
+}
+  
+@media (max-width: 800px) {
+    /* Place the bottom picture of home page
+    in-line */
+    #home2 {
+        display: block;
+    }
+
+    #caughtfishorig {
+        display: none;
+    }
+
+    #caughtfishplaceholder {
+        content: url('../img/caughtfish.png');
+        width: 85%;
+        margin: auto;
+    }
+}
+
+/* Style the "gear needed" page */
 #gearcols {
     display: flex;
 }
@@ -223,6 +337,10 @@ section > h2 {
     gap: 30%;
 }
 
+#col2 img {
+    padding-bottom: 10px;
+}
+
 #flyrod {
     width: 90%;
     padding-left: 10%;
@@ -231,12 +349,45 @@ section > h2 {
 #flybox {
     width: 90%;
     padding-left: 10%;
-} 
+}
 
 #flies-list {
     padding-left: 50px;
 }
 
+@media (max-width: 800px) {
+    /* Places the pictures on the gear page
+    in-line */
+    #gearcols {
+        display: block;
+    }
+
+    #col2 {
+        display: none;
+    }
+
+    #flyrodplaceholder {
+        content: url('../img/flyrod.png');
+        width: 80%;
+        margin: auto;
+    }
+
+    #flyboxplaceholder {
+        content: url('../img/flybox.png');
+        width: 80%;
+        margin: auto;
+    }
+}
+
+
+#examples iframe {
+    /* Set youtube video size */
+    width: 60%;
+    aspect-ratio: 16/9;
+    margin: auto;
+}
+
+/* Set these to hidden as a default */
 #gear {
     display: none;
 }
@@ -244,9 +395,4 @@ section > h2 {
 #examples {
     display: none;
 }
-
-.ytvid {
-    width: 500px;
-    height: 350px;
-  }
 

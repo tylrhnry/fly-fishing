@@ -1,0 +1,93 @@
+
+body {
+	font-family: georgia, Arial, sans-serif;
+    background-image: url("../img/winterlake.jpg");
+}
+
+header {
+	background: linear-gradient(to right, #252525, #505050);
+}
+
+nav a:hover,
+nav a.active {
+    background-color: #be7404;
+    color: #252525;
+}
+
+section {
+	background-color: #444444;
+	box-shadow: 0 0 10px #252525;
+    color: white;
+}
+
+#toggle-theme {
+    background-color: #be7404;
+    color: black;
+
+}
+
+@media (max-width: 800px) {
+    /* hamburger menu settings */
+
+    nav #menu-toggle span {
+        display: block;
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: var(--background-color);
+        border-radius: 4px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    #menu-vert li a {
+        color: var(--button-color);
+        border: 2px solid var(--button-color);
+        text-decoration: none;
+    }
+
+    #menu-vert li a:hover {
+        color: var(--background-color);
+        border: 2px solid var(--background-color);
+    }
+
+}
+
+section > h2 {
+    color: black;
+    background-color: #a86603;
+    box-shadow: 1px 1px 2px var(--border);
+}
+
+.col1, .col2, .col3 {
+    color: black;
+    background-color: #a86603;
+    border-radius: 5px;
+    padding: 5px;
+    border: 3px solid black;
+}
+
+.col1 img, .col2 img, .col3 img {
+    background-color: black;
+    padding: 0;
+}
+
+#gearcols a {
+    color: rgb(209, 209, 209);
+}
+
+
+
+
+
+
+
+
+
+
+footer {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
